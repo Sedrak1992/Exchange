@@ -39,7 +39,7 @@ function updateValue() {
     const sam = `${currency1.value}_${currency2.value}`;
 
     text.innerHTML =
-      `${currency1.value}  1  ` + " = " + `${currency2.value} ${valuta[sam]}`;
+      `${currency1.value}   1  ` + " = " + `${currency2.value} ${valuta[sam]}`;
 
     exchange2.value = exchange1.value * valuta[sam];
   }
@@ -52,7 +52,7 @@ function updateValue2() {
     const sam = `${currency1.value}_${currency2.value}`;
     exchange1.value = exchange2.value * valuta[sam];
     text.innerHTML =
-      `${currency1.value} 1` + " = " + `${currency2.value} ${valuta[sam]}`;
+      `${currency1.value}  1 ` + " = " + `${currency2.value} ${valuta[sam]}`;
   }
 }
 
