@@ -11,7 +11,7 @@ currency1.addEventListener("input", updateValue2);
 exchange1.addEventListener("input", updateValue);
 exchange2.addEventListener("input", updateValue2);
 
-const valuta = {
+const car = {
   AMD_USD: 0.0025,
   GEL_AMD: 139.24,
   GEL_USD: 0.0072,
@@ -22,7 +22,7 @@ const valuta = {
   AMD_GEL: 0.0072,
   RUB_GEL: 0.47,
   AMD_RUB: 0.14,
-  AMD_EURO: 0.0022,
+  AMD_EUR: 0.0022,
   USD_AMD: 400,
   USD_RUB: 50,
   USD_EUR: 0.8,
@@ -39,9 +39,9 @@ function updateValue() {
     const sam = `${currency1.value}_${currency2.value}`;
 
     text.innerHTML =
-      `${currency1.value}   1  ` + " = " + `${currency2.value} ${valuta[sam]}`;
+      `${currency1.value}   1  ` + " = " + `${currency2.value} ${car[sam]}`;
 
-    exchange2.value = exchange1.value * valuta[sam];
+    exchange2.value = exchange1.value * car[sam];
   }
 }
 
@@ -50,13 +50,13 @@ function updateValue2() {
     exchange1.value = exchange2.value;
   } else {
     const sam = `${currency1.value}_${currency2.value}`;
-    exchange1.value = exchange2.value * valuta[sam];
+    exchange1.value = exchange2.value * car[sam];
     text.innerHTML =
-      `${currency1.value}  1 ` + " = " + `${currency2.value} ${valuta[sam]}`;
+      `${currency1.value}  1 ` + " = " + `${currency2.value} ${car[sam]}`;
   }
 }
 
-swap.addEventListener("click", () => {
+swap.addEventListener("click", function() {
   let som = currency1.value;
   let box = currency2.value;
   currency1.value = box;
