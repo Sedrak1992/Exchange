@@ -6,7 +6,7 @@ const text = document.querySelector("#text");
 const swap = document.querySelector("#swap");
 
 currency2.addEventListener("input", updateValue);
-currency1.addEventListener("input", updateValue);
+currency1.addEventListener("input", updateValue2);
 
 exchange1.addEventListener("input", updateValue);
 exchange2.addEventListener("input", updateValue2);
@@ -32,12 +32,15 @@ const valuta = {
   EUR_AMD: 450,
   EUR_USD: 1.125,
 };
-
 function updateValue() {
   if (currency1.value === currency2.value) {
     exchange2.value = exchange1.value;
   } else {
     const sam = `${currency1.value}_${currency2.value}`;
+
+    text.innerHTML =
+      `${currency1.value}  1  ` + " = " + `${currency2.value} ${valuta[sam]}`;
+
     exchange2.value = exchange1.value * valuta[sam];
   }
 }
@@ -48,6 +51,8 @@ function updateValue2() {
   } else {
     const sam = `${currency1.value}_${currency2.value}`;
     exchange1.value = exchange2.value * valuta[sam];
+    text.innerHTML =
+      `${currency1.value} 1` + " = " + `${currency2.value} ${valuta[sam]}`;
   }
 }
 
@@ -57,4 +62,5 @@ swap.addEventListener("click", () => {
   currency1.value = box;
   currency2.value = som;
   updateValue();
+  updateValue2();
 });
